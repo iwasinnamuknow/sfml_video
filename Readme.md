@@ -8,6 +8,11 @@ I'm strictly an amateur and this example is not high quality or production grade
 of a few days hacking and needs plenty of love before ideally being released. I only make this available
 to hopefully save others some time and give them a base to work from.
 
+Because the audio and video decoding is happening on main thread, if the game loop is too slow the audio
+buffer will not be filled quickly enough. At extremely low loop speed presumably the video buffer would
+suffer the same problem. I'm guessing having a thread dedicated to decoding and filling the buffers this
+wouldn't be an issue but I didn't get that far.
+
 ## How To
 
 Build with CMake, copy the provided mp4 sample next to the binary and run.
